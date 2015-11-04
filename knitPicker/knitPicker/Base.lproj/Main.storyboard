@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="1597" y="274"/>
         </scene>
-        <!--Needles-->
+        <!--List O'Needles-->
         <scene sceneID="W0S-fq-ehc">
             <objects>
                 <viewController id="Z5N-Zl-0xx" customClass="NeedleViewController" customModule="knitPicker" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,11 +37,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WUm-yY-2xe">
-                                <rect key="frame" x="20" y="20" width="280" height="491"/>
+                                <rect key="frame" x="20" y="121" width="280" height="390"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="FWU-FC-LxT">
-                                        <rect key="frame" x="0.0" y="28" width="280" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="280" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FWU-FC-LxT" id="JL4-Ry-I1D">
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="43.5"/>
@@ -57,11 +57,60 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Needles" id="IZx-LK-k38"/>
+                    <navigationItem key="navigationItem" title="List O'Needles" id="8jw-pl-vVx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Rss-XF-9PW">
+                            <connections>
+                                <segue destination="lxM-jS-Bjw" kind="push" identifier="addNeedleSegue" id="JgX-vq-jf6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NCY-gy-xnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1597" y="-355"/>
+            <point key="canvasLocation" x="2129" y="-355"/>
+        </scene>
+        <!--Add Needle View Controller-->
+        <scene sceneID="Yhj-RI-std">
+            <objects>
+                <viewController id="lxM-jS-Bjw" customClass="AddNeedleViewController" customModule="knitPicker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b5N-0y-P3b"/>
+                        <viewControllerLayoutGuide type="bottom" id="tgO-aP-yko"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ldy-gv-lXI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="add needle size" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x7f-M7-C3f">
+                                <rect key="frame" x="43" y="96" width="235" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1iV-Hd-PEV">
+                                <rect key="frame" x="16" y="134" width="289" height="203"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jl-iR-rrA">
+                                <rect key="frame" x="95" y="444" width="130" height="62"/>
+                                <state key="normal" title="Add Needles"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="add needle length" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5oh-xj-e5u">
+                                <rect key="frame" x="43" y="345" width="235" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BYS-DI-5fw"/>
+                    <connections>
+                        <outlet property="needleLengthInput" destination="5oh-xj-e5u" id="B3z-X2-hKx"/>
+                        <outlet property="needleSizeInput" destination="x7f-M7-C3f" id="Byv-Xw-SuW"/>
+                        <outlet property="needleTypePicker" destination="1iV-Hd-PEV" id="2KM-KI-eN6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xfS-FD-0yK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2567" y="-1006"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="H44-tf-s4K">
@@ -73,13 +122,32 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Z5N-Zl-0xx" kind="relationship" relationship="viewControllers" id="XZ4-ja-JjF"/>
+                        <segue destination="FdN-JU-fwb" kind="relationship" relationship="viewControllers" id="XZ4-ja-JjF"/>
                         <segue destination="DeS-h3-7fC" kind="relationship" relationship="viewControllers" id="ExY-0n-T5R"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qwk-dG-6qX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1057" y="-40"/>
+        </scene>
+        <!--Needles-->
+        <scene sceneID="E3u-wS-4CZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FdN-JU-fwb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Needles" id="IZx-LK-k38"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ire-LR-9q0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Z5N-Zl-0xx" kind="relationship" relationship="rootViewController" id="kWg-JJ-yB5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1nD-LZ-dso" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1597" y="-355"/>
         </scene>
     </scenes>
 </document>

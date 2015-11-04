@@ -37,7 +37,7 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(needleTableIdentifier) as UITableViewCell!
-        
+        needles.sortInPlace()
         if (cell == nil){
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: needleTableIdentifier)
         }

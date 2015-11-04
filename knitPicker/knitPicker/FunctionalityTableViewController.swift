@@ -1,14 +1,14 @@
 //
-//  RootTableViewController.swift
+//  FunctionalityTableViewController.swift
 //  knitPicker
 //
-//  Created by Amelia Johnston on 11/2/15.
+//  Created by Amelia Johnston on 11/4/15.
 //  Copyright © 2015 Amelia. All rights reserved.
 //
 
 import UIKit
 
-class RootTableViewController: UITableViewController {
+class FunctionalityTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

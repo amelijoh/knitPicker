@@ -11,7 +11,10 @@
 		3B7A5EC71BE7B497007AB22E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7A5EC51BE7B497007AB22E /* Main.storyboard */; };
 		3B7A5EC91BE7B497007AB22E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B7A5EC81BE7B497007AB22E /* Assets.xcassets */; };
 		3B7A5ECC1BE7B497007AB22E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7A5ECA1BE7B497007AB22E /* LaunchScreen.storyboard */; };
-		3B7A5EDB1BE7BDB2007AB22E /* RootTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A5EDA1BE7BDB2007AB22E /* RootTableViewController.swift */; };
+		3B7A5EE81BEA4C32007AB22E /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A5EE71BEA4C32007AB22E /* RootViewController.swift */; };
+		3B7A5EEA1BEA4C56007AB22E /* NeedleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A5EE91BEA4C56007AB22E /* NeedleViewController.swift */; };
+		3B7A5EEC1BEA4C63007AB22E /* YarnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A5EEB1BEA4C63007AB22E /* YarnViewController.swift */; };
+		3B7A5EEE1BEA4D83007AB22E /* FunctionalityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A5EED1BEA4D83007AB22E /* FunctionalityTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +24,10 @@
 		3B7A5EC81BE7B497007AB22E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B7A5ECB1BE7B497007AB22E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B7A5ECD1BE7B497007AB22E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3B7A5EDA1BE7BDB2007AB22E /* RootTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTableViewController.swift; sourceTree = "<group>"; };
+		3B7A5EE71BEA4C32007AB22E /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		3B7A5EE91BEA4C56007AB22E /* NeedleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleViewController.swift; sourceTree = "<group>"; };
+		3B7A5EEB1BEA4C63007AB22E /* YarnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YarnViewController.swift; sourceTree = "<group>"; };
+		3B7A5EED1BEA4D83007AB22E /* FunctionalityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionalityTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,8 @@
 		3B7A5EC01BE7B497007AB22E /* knitPicker */ = {
 			isa = PBXGroup;
 			children = (
+				3B7A5EE61BEA4BDF007AB22E /* controller */,
+				3B7A5EE51BEA4BD5007AB22E /* view */,
 				3B7A5ED31BE7B560007AB22E /* model */,
 				3B7A5EC11BE7B497007AB22E /* AppDelegate.swift */,
 				3B7A5EC51BE7B497007AB22E /* Main.storyboard */,
@@ -67,9 +75,26 @@
 		3B7A5ED31BE7B560007AB22E /* model */ = {
 			isa = PBXGroup;
 			children = (
-				3B7A5EDA1BE7BDB2007AB22E /* RootTableViewController.swift */,
 			);
 			name = model;
+			sourceTree = "<group>";
+		};
+		3B7A5EE51BEA4BD5007AB22E /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		3B7A5EE61BEA4BDF007AB22E /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				3B7A5EE71BEA4C32007AB22E /* RootViewController.swift */,
+				3B7A5EE91BEA4C56007AB22E /* NeedleViewController.swift */,
+				3B7A5EEB1BEA4C63007AB22E /* YarnViewController.swift */,
+				3B7A5EED1BEA4D83007AB22E /* FunctionalityTableViewController.swift */,
+			);
+			name = controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,8 +168,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B7A5EDB1BE7BDB2007AB22E /* RootTableViewController.swift in Sources */,
+				3B7A5EEE1BEA4D83007AB22E /* FunctionalityTableViewController.swift in Sources */,
+				3B7A5EEC1BEA4C63007AB22E /* YarnViewController.swift in Sources */,
+				3B7A5EE81BEA4C32007AB22E /* RootViewController.swift in Sources */,
 				3B7A5EC21BE7B497007AB22E /* AppDelegate.swift in Sources */,
+				3B7A5EEA1BEA4C56007AB22E /* NeedleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +320,7 @@
 				3B7A5ED21BE7B497007AB22E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

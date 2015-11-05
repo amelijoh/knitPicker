@@ -64,6 +64,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="needleTableView" destination="WUm-yY-2xe" id="IQt-ys-DkE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NCY-gy-xnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -98,6 +101,7 @@
                                 <state key="normal" title="Add Needles"/>
                                 <connections>
                                     <action selector="addNeedleButtonPressed:" destination="lxM-jS-Bjw" eventType="touchUpInside" id="rzJ-vv-IlL"/>
+                                    <segue destination="NCa-Qc-Rn4" kind="unwind" unwindAction="unwindToNeedleVC:" id="V3W-gg-6cS"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="add needle length" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5oh-xj-e5u">
@@ -116,6 +120,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xfS-FD-0yK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="NCa-Qc-Rn4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2567" y="-1006"/>
         </scene>

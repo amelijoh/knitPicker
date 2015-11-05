@@ -17,6 +17,7 @@
 		3B7A5EEC1BEA4C63007AB22E /* YarnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A5EEB1BEA4C63007AB22E /* YarnViewController.swift */; };
 		3B7A5EF01BEA5A53007AB22E /* Needle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A5EEF1BEA5A53007AB22E /* Needle.swift */; };
 		3B7A5EF21BEA5A62007AB22E /* Yarn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A5EF11BEA5A62007AB22E /* Yarn.swift */; };
+		3B8508561BEBDB810065E369 /* NeedlePincushion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8508551BEBDB810065E369 /* NeedlePincushion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		3B7A5EEB1BEA4C63007AB22E /* YarnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YarnViewController.swift; sourceTree = "<group>"; };
 		3B7A5EEF1BEA5A53007AB22E /* Needle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Needle.swift; sourceTree = "<group>"; };
 		3B7A5EF11BEA5A62007AB22E /* Yarn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Yarn.swift; sourceTree = "<group>"; };
+		3B8508551BEBDB810065E369 /* NeedlePincushion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedlePincushion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				3B7A5EEF1BEA5A53007AB22E /* Needle.swift */,
+				3B8508551BEBDB810065E369 /* NeedlePincushion.swift */,
 			);
 			name = needles;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				3B7A5EE81BEA4C32007AB22E /* RootViewController.swift in Sources */,
 				3B7A5EC21BE7B497007AB22E /* AppDelegate.swift in Sources */,
 				3B1AD93A1BEA72CF005E717E /* AddNeedleViewController.swift in Sources */,
+				3B8508561BEBDB810065E369 /* NeedlePincushion.swift in Sources */,
 				3B7A5EEA1BEA4C56007AB22E /* NeedleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

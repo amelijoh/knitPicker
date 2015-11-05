@@ -8,15 +8,18 @@
 
 import UIKit
 
-class AddNeedleViewController: UIViewController {
+class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    let newNeedle = Needle(size: 10.0, type: NeedleType.Circular, length: 30.0)
+    let newNType = NeedleType.Circular
 
-    let newNeedle = Needle(size: <#T##Double#>, type: <#T##needleType#>, length: <#T##Double#>)
     
     @IBOutlet weak var needleSizeInput: UITextField!
     
     @IBOutlet weak var needleLengthInput: UITextField!
     
     @IBOutlet weak var needleTypePicker: UIPickerView!
+    
     
     
     
@@ -32,6 +35,8 @@ class AddNeedleViewController: UIViewController {
     }
     
 
+    
+
     /*
     // MARK: - Navigation
 
@@ -43,10 +48,21 @@ class AddNeedleViewController: UIViewController {
     */
     
     
+    @IBAction func addNeedleButtonPressed(sender: UIButton) {
+//    addNeedle()
     
+    }
     
-    func addNeedle() {
-        
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return NeedleType.count.hashValue
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        return NeedleType(rawValue: row)?.description;
     }
 
 }

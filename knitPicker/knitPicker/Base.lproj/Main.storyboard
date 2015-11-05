@@ -88,10 +88,18 @@
                             </textField>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1iV-Hd-PEV">
                                 <rect key="frame" x="16" y="134" width="289" height="203"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lxM-jS-Bjw" id="ntE-8F-eYQ"/>
+                                    <outlet property="delegate" destination="lxM-jS-Bjw" id="Jwa-et-cxy"/>
+                                </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jl-iR-rrA">
                                 <rect key="frame" x="95" y="444" width="130" height="62"/>
                                 <state key="normal" title="Add Needles"/>
+                                <connections>
+                                    <action selector="addNeedleButton:" destination="lxM-jS-Bjw" eventType="touchUpInside" id="Kn7-nR-2TY"/>
+                                    <action selector="addNeedleButtonPressed:" destination="lxM-jS-Bjw" eventType="touchUpInside" id="rzJ-vv-IlL"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="add needle length" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5oh-xj-e5u">
                                 <rect key="frame" x="43" y="345" width="235" height="30"/>
@@ -105,7 +113,7 @@
                     <connections>
                         <outlet property="needleLengthInput" destination="5oh-xj-e5u" id="B3z-X2-hKx"/>
                         <outlet property="needleSizeInput" destination="x7f-M7-C3f" id="Byv-Xw-SuW"/>
-                        <outlet property="needleTypePicker" destination="1iV-Hd-PEV" id="2KM-KI-eN6"/>
+                        <outlet property="needleTypePicker" destination="1iV-Hd-PEV" id="fnJ-kB-h28"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xfS-FD-0yK" userLabel="First Responder" sceneMemberID="firstResponder"/>

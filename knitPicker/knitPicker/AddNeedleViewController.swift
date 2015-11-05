@@ -11,7 +11,7 @@ import UIKit
 class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     let newNeedle = Needle(size: 0.0, type: NeedleType.Circular, length: 0.0)
-    var needlePincushion: [Needle] = []
+    var needlePincushion = [Needle]()
 
     
     @IBOutlet weak var needleSizeInput: UITextField!
@@ -33,6 +33,10 @@ class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBAction func addNeedleButtonPressed(sender: UIButton) {
         addNeedle()
+        
+        func unwindForSegue(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+            //
+        }
     
     }
     
@@ -60,12 +64,12 @@ class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        let vc = segue.destinationViewController as! NeedleViewController
+//        vc.needleTableIdentifier = needlePincushion[]
+    
         
     // Get the new view controller using segue.destinationViewController.
     // Pass the selected object to the new view controller.
     }
-    
 
-}

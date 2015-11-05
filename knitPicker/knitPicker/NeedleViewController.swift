@@ -10,9 +10,12 @@ import UIKit
 
 class NeedleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var needleTableView: UITableView!
+    
+    var needlePincushion = [Needle]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        needlesCheck()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,12 +31,11 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: - Table view data source
     
-    var needles = [Double]()
     
     let needleTableIdentifier = "NeedleTableIdentifier"
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return needles.count
+        return needlePincushion.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -41,20 +43,18 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
         if (cell == nil){
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: needleTableIdentifier)
         }
-        cell.textLabel?.text = String(needles[indexPath.row])
-        needlesCheck()
-        print(needles.count)
-        needlesCheck()
+        cell.textLabel?.text = String(needlePincushion[indexPath.row].size)
+        print(needlePincushion.count)
         return cell
     }
     
-    func needlesCheck() {
-        if needles.isEmpty {
-            print("Array is empty")
-        }
-        else {
-            needles.sortInPlace()
-            print("needles sorted")
+    
+    @IBAction func unwindToNeedleVC(segue:UIStoryboardSegue) {
+        if (segue.sourceViewController .isKindOfClass(AddNeedleViewController))
+        {
+            let sourceVC = segue.sourceViewController as! AddNeedleViewController
+            self.needlePincushion = sourceVC.needlePincushion
+            needleTableView.reloadData()
         }
     }
 

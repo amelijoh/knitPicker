@@ -97,7 +97,6 @@
                                 <rect key="frame" x="95" y="444" width="130" height="62"/>
                                 <state key="normal" title="Add Needles"/>
                                 <connections>
-                                    <action selector="addNeedleButton:" destination="lxM-jS-Bjw" eventType="touchUpInside" id="Kn7-nR-2TY"/>
                                     <action selector="addNeedleButtonPressed:" destination="lxM-jS-Bjw" eventType="touchUpInside" id="rzJ-vv-IlL"/>
                                 </connections>
                             </button>

@@ -27,7 +27,7 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: - Table view data source
     
-    var needles = [9, 7, 12, 3, 4]
+    var needles = [Double]()
     
     let needleTableIdentifier = "NeedleTableIdentifier"
     
@@ -37,13 +37,22 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(needleTableIdentifier) as UITableViewCell!
-        needles.sortInPlace()
         if (cell == nil){
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: needleTableIdentifier)
         }
+        needlesCheck()
         cell.textLabel?.text = String(needles[indexPath.row])
         print(needles)
         return cell
+    }
+    
+    func needlesCheck() {
+        if needles.isEmpty {
+            print("Array is empty")
+        }
+        else {
+            needles.sortInPlace()
+        }
     }
 
 }

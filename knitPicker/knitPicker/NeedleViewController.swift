@@ -12,6 +12,7 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        needlesCheck()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -40,9 +41,10 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
         if (cell == nil){
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: needleTableIdentifier)
         }
-        needlesCheck()
         cell.textLabel?.text = String(needles[indexPath.row])
-        print(needles)
+        needlesCheck()
+        print(needles.count)
+        needlesCheck()
         return cell
     }
     
@@ -52,6 +54,7 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
         }
         else {
             needles.sortInPlace()
+            print("needles sorted")
         }
     }
 

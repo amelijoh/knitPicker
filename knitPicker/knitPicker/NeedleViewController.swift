@@ -16,12 +16,14 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.needleTableView.editing = true
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.needleTableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,19 +45,32 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
         if (cell == nil){
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: needleTableIdentifier)
         }
-        cell.textLabel?.text = String(needlePincushion[indexPath.row].size)
-        print(needlePincushion.count)
+        cell.textLabel?.text = String(needlePincushion[indexPath.row].size!)
+        cell.detailTextLabel?.text = String(needlePincushion[indexPath.row].type!)
+        sortNeedlePincushion()
         return cell
+    }
+    
+    func sortNeedlePincushion() {
+        if needlePincushion.isEmpty {
+            print("needle pincushion is empty!")
+        }
+        else {
+            //needlePincushion.sortInPlace()
+            print("you have needles!")
+        }
     }
     
     
     @IBAction func unwindToNeedleVC(segue:UIStoryboardSegue) {
-        if (segue.sourceViewController .isKindOfClass(AddNeedleViewController))
-        {
-            let sourceVC = segue.sourceViewController as! AddNeedleViewController
-            self.needlePincushion = sourceVC.needlePincushion
-            needleTableView.reloadData()
+                if (segue.sourceViewController .isKindOfClass(AddNeedleViewController))
+                {
+                    let sourceVC = segue.sourceViewController as! AddNeedleViewController
+                    needlePincushion.append(sourceVC.newNeedle)
+                    print(needlePincushion.count)
+                    
+                }
+
         }
-    }
 
 }

@@ -10,10 +10,8 @@ import UIKit
 
 class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    let newNeedle = Needle(size: 0.0, type: NeedleType.Circular, length: 0.0)
-    var needlePincushion = [Needle]()
+    let newNeedle = Needle(size: 0.0, type: .Circular, length: 0.0)
 
-    
     @IBOutlet weak var needleSizeInput: UITextField!
     
     @IBOutlet weak var needleLengthInput: UITextField!
@@ -33,19 +31,13 @@ class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBAction func addNeedleButtonPressed(sender: UIButton) {
         addNeedle()
-        
-        func unwindForSegue(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-            //
-        }
-    
     }
     
     func addNeedle() {
-        
-        let newNeedleAdded = Needle(size: Double(needleSizeInput.text!)!, type: NeedleType(rawValue: needleTypePicker.selectedRowInComponent(0))!, length: Double(needleLengthInput.text!)!)
-        print("\(newNeedleAdded.size!)")
-        needlePincushion.append(newNeedleAdded)
-        print(needlePincushion.count)
+        newNeedle.size = Double(needleSizeInput.text!)
+        newNeedle.type = NeedleType(rawValue: needleTypePicker.selectedRowInComponent(0))!
+        newNeedle.length = Double(needleLengthInput.text!)
+        print("\(newNeedle.size!), \(newNeedle.type!)")
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -66,7 +58,6 @@ class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     // In a storyboard-based application, you will often want to do a little preparation before navigation
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //        let vc = segue.destinationViewController as! NeedleViewController
-//        vc.needleTableIdentifier = needlePincushion[]
     
         
     // Get the new view controller using segue.destinationViewController.

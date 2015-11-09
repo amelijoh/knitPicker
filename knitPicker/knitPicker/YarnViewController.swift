@@ -12,10 +12,6 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet weak var yarnTableView: UITableView!
     
-    
-    
-    
-    
     var yarnStash = [Yarn]()
     
     

@@ -43,7 +43,7 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(needleTableIdentifier) as UITableViewCell!
         if (cell == nil){
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: needleTableIdentifier)
+            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: needleTableIdentifier)
         }
         cell.textLabel?.text = String(needlePincushion[indexPath.row].size!)
         cell.detailTextLabel?.text = String(needlePincushion[indexPath.row].type!)

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B1AD93A1BEA72CF005E717E /* AddNeedleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1AD9391BEA72CF005E717E /* AddNeedleViewController.swift */; };
+		3B3B52DC1BF0EA33004842A9 /* AddYarnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3B52DB1BF0EA33004842A9 /* AddYarnViewController.swift */; };
 		3B7A5EC21BE7B497007AB22E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A5EC11BE7B497007AB22E /* AppDelegate.swift */; };
 		3B7A5EC71BE7B497007AB22E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7A5EC51BE7B497007AB22E /* Main.storyboard */; };
 		3B7A5EC91BE7B497007AB22E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B7A5EC81BE7B497007AB22E /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		3B1AD9391BEA72CF005E717E /* AddNeedleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNeedleViewController.swift; sourceTree = "<group>"; };
+		3B3B52DB1BF0EA33004842A9 /* AddYarnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddYarnViewController.swift; sourceTree = "<group>"; };
 		3B7A5EBE1BE7B497007AB22E /* knitPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = knitPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B7A5EC11BE7B497007AB22E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B7A5EC61BE7B497007AB22E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				3B7A5EEB1BEA4C63007AB22E /* YarnViewController.swift */,
+				3B3B52DB1BF0EA33004842A9 /* AddYarnViewController.swift */,
 			);
 			name = yarnController;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B3B52DC1BF0EA33004842A9 /* AddYarnViewController.swift in Sources */,
 				3B7A5EF01BEA5A53007AB22E /* Needle.swift in Sources */,
 				3B7A5EF21BEA5A62007AB22E /* Yarn.swift in Sources */,
 				3B7A5EEC1BEA4C63007AB22E /* YarnViewController.swift in Sources */,

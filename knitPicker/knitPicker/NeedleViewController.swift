@@ -16,23 +16,16 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.needleTableView.editing = true
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        
         self.needleTableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-    // MARK: - Table view data source
-    
     
     let needleTableIdentifier = "NeedleTableIdentifier"
     
@@ -70,7 +63,5 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
                     print(needlePincushion.count)
                     
                 }
-
-        }
-
+            }
 }

@@ -7,15 +7,32 @@
 //
 
 import UIKit
+import Parse
+import Bolts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    
+    
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        Parse.setApplicationId("Eh0srEAqLNzrkvQrZ8XlVWpjOUQCClAn2kdjnrzR", clientKey: "Kw5puBBvd9cf94QXGkHmaMyHycGltkuaqiYkofNt")
+        
+//        let needle = PFObject(className: "Player")
+//        needle.setObject("John", forKey: "Name")
+//        needle.setObject(1230, forKey: "Score")
+//        needle.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+//            if succeeded {
+//                print("Object Uploaded")
+//            } else {
+//                print("Error: \(error) \(error!.userInfo)")
+//            }
+//        }
         return true
     }
 

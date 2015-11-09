@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -31,6 +32,7 @@ class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBAction func addNeedleButtonPressed(sender: UIButton) {
         addNeedle()
+        saveNeedleData()
     }
     
     func addNeedle() {
@@ -48,8 +50,23 @@ class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         return NeedleType.count.hashValue
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return NeedleType(rawValue: row)?.description
+    }
+    
+    func saveNeedleData() {
+        let addedNeedle = PFObject(className:"AddedNeedle")
+        addedNeedle["size"] = newNeedle.size
+        //addedNeedle["type"] = newNeedle.type as! PFObject
+        addedNeedle["length"] = newNeedle.length
+        addedNeedle.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                print("The needle has been saved")
+            } else {
+                print("There was a problem with the needle")
+            }
+        }
     }
     
     

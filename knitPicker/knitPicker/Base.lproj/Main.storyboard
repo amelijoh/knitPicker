@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
-        <!--Yarn-->
+        <!--Yarn Stash-->
         <scene sceneID="I7Z-Id-Sxh">
             <objects>
-                <viewController id="DeS-h3-7fC" customClass="YarnViewController" customModule="knitPicker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Yarn Stash" id="DeS-h3-7fC" customClass="YarnViewController" customModule="knitPicker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G7g-wQ-SLt"/>
                         <viewControllerLayoutGuide type="bottom" id="cmL-vv-EkI"/>
@@ -16,15 +16,102 @@
                     <view key="view" contentMode="scaleToFill" id="pUG-EY-Xcy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ApF-on-ny8">
+                                <rect key="frame" x="20" y="121" width="280" height="390"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="44" id="EHK-Yw-P3s">
+                                        <rect key="frame" x="0.0" y="92" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EHK-Yw-P3s" id="aPD-pw-IR9">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="DeS-h3-7fC" id="5uN-ln-a1t"/>
+                                    <outlet property="delegate" destination="DeS-h3-7fC" id="alS-yL-6BG"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Yarn" id="MaR-Dc-shG"/>
+                    <navigationItem key="navigationItem" title="Stash" id="esR-4K-Xht">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Nxc-8M-qwG">
+                            <connections>
+                                <segue destination="a6t-ol-jMR" kind="push" identifier="addYarnSegue" id="U6I-VM-4s6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="yarnTableView" destination="ApF-on-ny8" id="cb3-rU-DqA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odJ-6P-DK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1597" y="274"/>
+            <point key="canvasLocation" x="2021" y="274"/>
         </scene>
-        <!--List O'Needles-->
+        <!--Add Yarn View Controller-->
+        <scene sceneID="rhE-q3-JZ1">
+            <objects>
+                <viewController id="a6t-ol-jMR" customClass="AddYarnViewController" customModule="knitPicker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IAp-WM-Xip"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yup-OA-p1h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KMj-BN-heX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="number of skeins" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oVc-KG-KUX">
+                                <rect key="frame" x="20" y="381" width="125" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="yds per skein" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fT6-6v-Ft9">
+                                <rect key="frame" x="179" y="381" width="125" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xNJ-yv-kya">
+                                <rect key="frame" x="0.0" y="141" width="320" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="a6t-ol-jMR" id="i6v-LS-Ouu"/>
+                                    <outlet property="delegate" destination="a6t-ol-jMR" id="YpG-OA-C8g"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYc-Yg-dYd">
+                                <rect key="frame" x="93" y="440" width="135" height="71"/>
+                                <state key="normal" title="Add Yarn"/>
+                                <connections>
+                                    <action selector="addYarnButtonPressed:" destination="a6t-ol-jMR" eventType="touchUpInside" id="wO8-Ob-OpO"/>
+                                    <segue destination="ZZD-4c-JsN" kind="unwind" unwindAction="unwindToYarnVC:" id="nMK-5M-FvU"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="yarn brand and name here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GlM-uk-dup">
+                                <rect key="frame" x="20" y="91" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="C9v-Bd-xYx"/>
+                    <connections>
+                        <outlet property="numberOfSkeinsInput" destination="oVc-KG-KUX" id="zjb-QQ-CQ4"/>
+                        <outlet property="skeinInfoInput" destination="fT6-6v-Ft9" id="kvH-x5-cls"/>
+                        <outlet property="yarnBrandInput" destination="GlM-uk-dup" id="iDe-CZ-3Qy"/>
+                        <outlet property="yarnWeightPicker" destination="xNJ-yv-kya" id="ql3-Eq-qJE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FBA-3c-dXe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ZZD-4c-JsN" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2507" y="274"/>
+        </scene>
+        <!--Pincushion-->
         <scene sceneID="W0S-fq-ehc">
             <objects>
                 <viewController id="Z5N-Zl-0xx" customClass="NeedleViewController" customModule="knitPicker" customModuleProvider="target" sceneMemberID="viewController">
@@ -57,7 +144,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="List O'Needles" id="8jw-pl-vVx">
+                    <navigationItem key="navigationItem" title="Pincushion" id="8jw-pl-vVx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Rss-XF-9PW">
                             <connections>
                                 <segue destination="lxM-jS-Bjw" kind="push" identifier="addNeedleSegue" id="JgX-vq-jf6"/>
@@ -70,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NCY-gy-xnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2129" y="-355"/>
+            <point key="canvasLocation" x="2021" y="-355"/>
         </scene>
         <!--Add Needle View Controller-->
         <scene sceneID="Yhj-RI-std">
@@ -89,13 +176,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1iV-Hd-PEV">
-                                <rect key="frame" x="16" y="134" width="289" height="203"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="lxM-jS-Bjw" id="ntE-8F-eYQ"/>
-                                    <outlet property="delegate" destination="lxM-jS-Bjw" id="Jwa-et-cxy"/>
-                                </connections>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jl-iR-rrA">
                                 <rect key="frame" x="95" y="444" width="130" height="62"/>
                                 <state key="normal" title="Add Needles"/>
@@ -109,6 +189,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1iV-Hd-PEV">
+                                <rect key="frame" x="16" y="134" width="289" height="203"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lxM-jS-Bjw" id="ntE-8F-eYQ"/>
+                                    <outlet property="delegate" destination="lxM-jS-Bjw" id="Jwa-et-cxy"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -122,7 +209,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xfS-FD-0yK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="NCa-Qc-Rn4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2567" y="-1006"/>
+            <point key="canvasLocation" x="2507" y="-355"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="H44-tf-s4K">
@@ -135,7 +222,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="FdN-JU-fwb" kind="relationship" relationship="viewControllers" id="XZ4-ja-JjF"/>
-                        <segue destination="DeS-h3-7fC" kind="relationship" relationship="viewControllers" id="ExY-0n-T5R"/>
+                        <segue destination="cA2-Jf-wiK" kind="relationship" relationship="viewControllers" id="ExY-0n-T5R"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qwk-dG-6qX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -160,6 +247,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1nD-LZ-dso" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1597" y="-355"/>
+        </scene>
+        <!--Yarn-->
+        <scene sceneID="3Kd-Gf-Cdl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cA2-Jf-wiK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Yarn" id="MaR-Dc-shG"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3KF-9c-zIC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DeS-h3-7fC" kind="relationship" relationship="rootViewController" id="7hw-22-cl3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BMK-Bs-hsk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1597" y="274"/>
         </scene>
     </scenes>
 </document>

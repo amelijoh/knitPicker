@@ -10,13 +10,13 @@ import Foundation
 
 class Yarn {
     
-    var brand: String?
+    var brandName: String?
     var yarnWeight: WeightType?
     var lengthPerSkein: Double?
     var numberOfSkeins: Int?
     
-    init(brand: String, yarnWeight: WeightType, lengthPerSkein: Double, numberOfSkeins: Int) {
-        self.brand = brand
+    init(brandName: String, yarnWeight: WeightType, lengthPerSkein: Double, numberOfSkeins: Int) {
+        self.brandName = brandName
         self.yarnWeight = yarnWeight
         self.lengthPerSkein = lengthPerSkein
         self.numberOfSkeins = numberOfSkeins

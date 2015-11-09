@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class AddYarnViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -28,17 +29,6 @@ class AddYarnViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -53,6 +43,7 @@ class AddYarnViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     @IBAction func addYarnButtonPressed(sender: UIButton) {
         addSkein()
+        saveYarnData()
     }
     
     func addSkein(){
@@ -63,5 +54,20 @@ class AddYarnViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         print("\(newSkein.brandName!), \(newSkein.yarnWeight!)")
     
 }
+    func saveYarnData() {
+        let addedYarn = PFObject(className:"AddedYarn")
+        addedYarn["brandName"] = newSkein.brandName
+        //addedYarn["yarnWeight"] = newNeedle. as! PFObject
+        addedYarn["length"] = newSkein.lengthPerSkein
+        addedYarn["skeinNumber"] = newSkein.numberOfSkeins
+        addedYarn.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                print("The yarn has been saved")
+            } else {
+                print("There was a problem with the yarn")
+            }
+        }
+    }
 
 }

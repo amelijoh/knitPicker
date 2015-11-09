@@ -12,6 +12,10 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet weak var yarnTableView: UITableView!
     
+    
+    
+    
+    
     var yarnStash = [Yarn]()
     
     
@@ -44,6 +48,7 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         cell.textLabel?.text = yarnStash[indexPath.row].brandName!
         cell.detailTextLabel?.text = String(yarnStash[indexPath.row].yarnWeight!)
+        
         return cell
     }
     

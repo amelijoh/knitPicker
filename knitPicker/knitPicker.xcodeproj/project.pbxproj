@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3B1AD93A1BEA72CF005E717E /* AddNeedleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1AD9391BEA72CF005E717E /* AddNeedleViewController.swift */; };
 		3B3B52DC1BF0EA33004842A9 /* AddYarnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3B52DB1BF0EA33004842A9 /* AddYarnViewController.swift */; };
+		3B3B52E11BF1273A004842A9 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3B52E01BF1273A004842A9 /* ParseUI.framework */; };
+		3B3B52E31BF12741004842A9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3B52E21BF12741004842A9 /* Bolts.framework */; };
+		3B3B52E51BF1274C004842A9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3B52E41BF1274C004842A9 /* Parse.framework */; };
 		3B7A5EC21BE7B497007AB22E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A5EC11BE7B497007AB22E /* AppDelegate.swift */; };
 		3B7A5EC71BE7B497007AB22E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7A5EC51BE7B497007AB22E /* Main.storyboard */; };
 		3B7A5EC91BE7B497007AB22E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B7A5EC81BE7B497007AB22E /* Assets.xcassets */; };
@@ -18,11 +21,17 @@
 		3B7A5EEC1BEA4C63007AB22E /* YarnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A5EEB1BEA4C63007AB22E /* YarnViewController.swift */; };
 		3B7A5EF01BEA5A53007AB22E /* Needle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A5EEF1BEA5A53007AB22E /* Needle.swift */; };
 		3B7A5EF21BEA5A62007AB22E /* Yarn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A5EF11BEA5A62007AB22E /* Yarn.swift */; };
+		A7868A55DA784C0169F90D56 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0BFE47930F33BCE28EED861 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		356208778F47C9A1E31D4E73 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3B1AD9391BEA72CF005E717E /* AddNeedleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNeedleViewController.swift; sourceTree = "<group>"; };
 		3B3B52DB1BF0EA33004842A9 /* AddYarnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddYarnViewController.swift; sourceTree = "<group>"; };
+		3B3B52DD1BF100EC004842A9 /* knitPicker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "knitPicker-Bridging-Header.h"; sourceTree = "<group>"; };
+		3B3B52E01BF1273A004842A9 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		3B3B52E21BF12741004842A9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		3B3B52E41BF1274C004842A9 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		3B7A5EBE1BE7B497007AB22E /* knitPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = knitPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B7A5EC11BE7B497007AB22E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B7A5EC61BE7B497007AB22E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -34,6 +43,8 @@
 		3B7A5EEB1BEA4C63007AB22E /* YarnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YarnViewController.swift; sourceTree = "<group>"; };
 		3B7A5EEF1BEA5A53007AB22E /* Needle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Needle.swift; sourceTree = "<group>"; };
 		3B7A5EF11BEA5A62007AB22E /* Yarn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Yarn.swift; sourceTree = "<group>"; };
+		9AA84BEEE14885F6A0D98503 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B0BFE47930F33BCE28EED861 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +52,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B3B52E31BF12741004842A9 /* Bolts.framework in Frameworks */,
+				3B3B52E11BF1273A004842A9 /* ParseUI.framework in Frameworks */,
+				3B3B52E51BF1274C004842A9 /* Parse.framework in Frameworks */,
+				A7868A55DA784C0169F90D56 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +85,8 @@
 			children = (
 				3B7A5EC01BE7B497007AB22E /* knitPicker */,
 				3B7A5EBF1BE7B497007AB22E /* Products */,
+				6635C5BB919E8FC30DC07620 /* Pods */,
+				5BE15090FFA53EC98F6E537C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +108,7 @@
 				3B7A5EC81BE7B497007AB22E /* Assets.xcassets */,
 				3B7A5ECA1BE7B497007AB22E /* LaunchScreen.storyboard */,
 				3B7A5ECD1BE7B497007AB22E /* Info.plist */,
+				3B3B52DD1BF100EC004842A9 /* knitPicker-Bridging-Header.h */,
 			);
 			path = knitPicker;
 			sourceTree = "<group>";
@@ -114,6 +132,26 @@
 			name = controller;
 			sourceTree = "<group>";
 		};
+		5BE15090FFA53EC98F6E537C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B3B52E21BF12741004842A9 /* Bolts.framework */,
+				3B3B52E41BF1274C004842A9 /* Parse.framework */,
+				3B3B52E01BF1273A004842A9 /* ParseUI.framework */,
+				B0BFE47930F33BCE28EED861 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6635C5BB919E8FC30DC07620 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9AA84BEEE14885F6A0D98503 /* Pods.debug.xcconfig */,
+				356208778F47C9A1E31D4E73 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,9 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B7A5ED01BE7B497007AB22E /* Build configuration list for PBXNativeTarget "knitPicker" */;
 			buildPhases = (
+				2C6E3E50740736B9EAF8774C /* Check Pods Manifest.lock */,
 				3B7A5EBA1BE7B497007AB22E /* Sources */,
 				3B7A5EBB1BE7B497007AB22E /* Frameworks */,
 				3B7A5EBC1BE7B497007AB22E /* Resources */,
+				F2E4FD6157EEEA506B1B01C6 /* Embed Pods Frameworks */,
+				7808A2E85D221900B65F3912 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -179,6 +220,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C6E3E50740736B9EAF8774C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7808A2E85D221900B65F3912 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2E4FD6157EEEA506B1B01C6 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3B7A5EBA1BE7B497007AB22E /* Sources */ = {
@@ -301,23 +390,38 @@
 		};
 		3B7A5ED11BE7B497007AB22E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AA84BEEE14885F6A0D98503 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = knitPicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Amelia.knitPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "knitPicker/knitPicker-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		3B7A5ED21BE7B497007AB22E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 356208778F47C9A1E31D4E73 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = knitPicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Amelia.knitPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "knitPicker/knitPicker-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class NeedleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -63,5 +64,6 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
                     print(needlePincushion.count)
                     
                 }
+        
             }
 }

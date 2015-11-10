@@ -36,13 +36,13 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //retrieveSavedNeedle()
+        retrieveSavedNeedle()
         var cell = tableView.dequeueReusableCellWithIdentifier(needleTableIdentifier) as UITableViewCell!
         if (cell == nil){
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: needleTableIdentifier)
         }
         sortNeedlePincushion()
-        cell.textLabel?.text = "Size: " + String(needlePincushion[indexPath.row].size!)
+        cell.textLabel?.text = "Size: " + String(needleSize)
         cell.detailTextLabel?.text = String(needlePincushion[indexPath.row].type!) + " Needles"
         return cell
     }
@@ -76,7 +76,9 @@ func retrieveSavedNeedle() {
             print("Successfully retrieved \(objects!.count) needles.")
             if let savedNeedles = objects as [PFObject]! {
                     for object in savedNeedles {
-                    print(object.objectId)
+                    let needleSize = object["size"]
+                    let needleLength = object["length"]
+                    print("\(needleSize) + \(needleLength)")
                     }
                 }
         } else {
@@ -89,7 +91,8 @@ func retrieveSavedNeedle() {
 }
 
 
-
-
+//let needleSize = addedNeedle["size"] as Double
+////let playerName = gameScore["playerName"] as String
+//let needleLength = addedNeedle["length"] as Double
 
 

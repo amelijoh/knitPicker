@@ -81,3 +81,6 @@ class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     // Pass the selected object to the new view controller.
     }
 
+//let needleSize = addedNeedle["size"] as Double
+////let playerName = gameScore["playerName"] as String
+//let needleLength = addedNeedle["length"] as Double

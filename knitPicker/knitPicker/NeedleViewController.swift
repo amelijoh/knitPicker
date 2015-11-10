@@ -36,14 +36,14 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        retrieveSavedNeedle()
+        //retrieveSavedNeedle()
         var cell = tableView.dequeueReusableCellWithIdentifier(needleTableIdentifier) as UITableViewCell!
         if (cell == nil){
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: needleTableIdentifier)
         }
+        sortNeedlePincushion()
         cell.textLabel?.text = "Size: " + String(needlePincushion[indexPath.row].size!)
         cell.detailTextLabel?.text = String(needlePincushion[indexPath.row].type!) + " Needles"
-        sortNeedlePincushion()
         return cell
     }
     
@@ -52,7 +52,7 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
             print("needle pincushion is empty!")
         }
         else {
-            //needlePincushion.sort()
+            needlePincushion.sortInPlace({$0.size < $1.size})
             print("you have needles!")
         }
     }
@@ -70,24 +70,23 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
 
 func retrieveSavedNeedle() {
     var query = PFQuery(className:"AddedNeedle")
-    query.getObjectInBackgroundWithId("LYBnqhcryG") {
-        (addedNeedle: PFObject?, error: NSError?) -> Void in
-        if error == nil && addedNeedle != nil {
-            print("Size: \(addedNeedle!["size"])", "Length: \(addedNeedle!["length"]) inches")
+    query.findObjectsInBackgroundWithBlock{
+        (objects: [PFObject]?, error: NSError?) -> Void in
+        if error == nil {
+            print("Successfully retrieved \(objects!.count) needles.")
+            if let savedNeedles = objects as [PFObject]! {
+                    for object in savedNeedles {
+                    print(object.objectId)
+                    }
+                }
         } else {
-            print(error)
+            print("Error: \(error!) \(error!.userInfo)")
+            }
         }
+
     }
-}
 
 }
-
-
-
-
-
-
-
 
 
 

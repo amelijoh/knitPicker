@@ -7,21 +7,20 @@
 //
 
 import Foundation
+import Parse
 
 class Needle {
     
-    var size: Double?
+    var needleSize: Double?
     var type: NeedleType?
-    var length: Double?
+    var needleLength: Double?
     
-    init(size: Double, type: NeedleType, length: Double) {
-        self.size = size
+    init(needleSize: Double, type: NeedleType, needleLength: Double) {
+        self.needleSize = needleSize
         self.type = type
-        self.length = length
+        self.needleLength = needleLength
     }
 }
-
-
 
 enum NeedleType: Int, CustomStringConvertible {
     case Circular = 0
@@ -37,5 +36,3 @@ enum NeedleType: Int, CustomStringConvertible {
         }
     }
 }
-
-

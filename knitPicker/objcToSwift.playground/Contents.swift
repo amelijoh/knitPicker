@@ -2,16 +2,19 @@
 
 import UIKit
 import Parse
-
-PFQuery *query = [PFQuery queryWithClassName:@"tempClass"];
-[query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-if (!error) {
-// The find succeeded. The first 100 objects are available in objects
-} else {
-// Log details of the failure
-NSLog(@"Error: %@ %@", error, [error userInfo]);
+func queryForTable() -> PFQuery {
+    var query:PFQuery = PFQuery(className:self.parseClassName!)
+    
+    if(objects?.count == 0)
+    {
+        query.cachePolicy = PFCachePolicy.CacheThenNetwork
+    }
+    
+    query.orderByAscending("name")
+    
+    return query
 }
-}];
+
 
 var query = PFQuery(className:"AddedNeedle")
 query.findObjectsInBackgroundWithBlock{
@@ -65,4 +68,24 @@ query.findObjectsInBackgroundWithBlock {
     }
 }
 
-
+func addItems() {
+    
+    items.removeAllObjects()
+    
+    var needleQuery = PFQuery(className: "AddedNeedle")
+    
+    //run query
+    needleQuery.findObjectsInBackgroundWithBlock({
+        (success:[AnyObject]!, error: NSError!) -> Void in
+        
+        if (success != nil) {
+            
+            for object:PFObject! in success as [PFObject]{
+                self.items.addObject(object)
+            }
+            
+            println(self.items)
+            self.tblTicket.reloadData()
+            
+        }})
+}

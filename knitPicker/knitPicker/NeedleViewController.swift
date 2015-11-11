@@ -11,6 +11,7 @@ import Parse
 
 class NeedleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+
     @IBOutlet weak var needleTableView: UITableView!
     
     var needlePincushion = [Needle]()
@@ -41,56 +42,65 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
         if (cell == nil){
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: needleTableIdentifier)
         }
-        cell.textLabel?.text = "Size: " + String(needlePincushion[indexPath.row].size!)
+        cell.textLabel?.text = "Size: " + String(needlePincushion[indexPath.row].needleSize!)
         cell.detailTextLabel?.text = String(needlePincushion[indexPath.row].type!) + " Needles"
-        sortNeedlePincushion()
+//        print(needlePincushion.description)
+            //"Size: " + String(needlePincushion[indexPath.row].needleSize)
+        //cell.detailTextLabel?.text = String(needlePincushion[indexPath.row].needleLength) + " Needles"
         return cell
     }
-    
-    func sortNeedlePincushion() {
-        if needlePincushion.isEmpty {
-            print("needle pincushion is empty!")
-        }
-        else {
-            //needlePincushion.sort()
-            print("you have needles!")
-        }
-    }
-    
     
     @IBAction func unwindToNeedleVC(segue:UIStoryboardSegue) {
                 if (segue.sourceViewController .isKindOfClass(AddNeedleViewController))
                 {
                     let sourceVC = segue.sourceViewController as! AddNeedleViewController
-                    needlePincushion.append(sourceVC.newNeedle)
                     print(needlePincushion.count)
                 }
         
             }
 
-func retrieveSavedNeedle() {
-    var query = PFQuery(className:"AddedNeedle")
-    query.getObjectInBackgroundWithId("LYBnqhcryG") {
-        (addedNeedle: PFObject?, error: NSError?) -> Void in
-        if error == nil && addedNeedle != nil {
-            print("Size: \(addedNeedle!["size"])", "Length: \(addedNeedle!["length"]) inches")
+//pull saved object from Parse, parse data
+    
+    func retrieveSavedNeedle() {
+    
+        PFObject.unpinAllObjectsInBackgroundWithBlock(nil)
+        let query: PFQuery = PFQuery(className:"AddedNeedle")
+        query.findObjectsInBackgroundWithBlock{
+        (objects, error) -> Void in
+        if error == nil {
+            
+            //PFObject.pinAllInBackground(objects, block: nil)
+
+            if let savedNeedles = objects as [PFObject]! {
+                for object in savedNeedles {
+                    let needleSize = object["size"] as! Double
+                    //needleSizes
+                    let needleLength = object["length"] as! Double
+                    let needle = Needle(needleSize: needleSize, type: NeedleType.Circular, needleLength: needleLength)
+                    self.needlePincushion.append(needle)
+                    print("Size: \(needleSize) + \(needleLength) inches")
+                }
+                print("The needle count is \(self.needlePincushion.count)")
+            }
         } else {
-            print(error)
+            print("Error: \(error!) \(error!.userInfo)")
         }
+        
+        }
+
     }
-}
 
 }
 
+//                    needlePincushion.append(sourceVC.newNeedle)
 
-
-
-
-
-
-
-
-
-
-
+//    func sortNeedlePincushion() {
+//        if needlePincushion.isEmpty {
+//            print("needle pincushion is empty!")
+//        }
+//        else {
+//            needlePincushion.sortInPlace({$0.size < $1.size})
+//            print("you have needles!")
+//        }
+//    }
 

@@ -11,7 +11,7 @@ import Parse
 
 class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    let newNeedle = Needle(size: 0.0, type: .Circular, length: 0.0)
+    let newNeedle = Needle(needleSize: 0.0, type: .Circular, needleLength: 0.0)
 
     @IBOutlet weak var needleSizeInput: UITextField!
     
@@ -35,13 +35,6 @@ class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         saveNeedleData()
     }
     
-    func addNeedle() {
-        newNeedle.size = Double(needleSizeInput.text!)
-        newNeedle.type = NeedleType(rawValue: needleTypePicker.selectedRowInComponent(0))!
-        newNeedle.length = Double(needleLengthInput.text!)
-        print("\(newNeedle.size!), \(newNeedle.type!)")
-    }
-    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -54,11 +47,18 @@ class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         return NeedleType(rawValue: row)?.description
     }
     
+    func addNeedle() {
+        newNeedle.needleSize = Double(needleSizeInput.text!)
+        newNeedle.type = NeedleType(rawValue: needleTypePicker.selectedRowInComponent(0))!
+        newNeedle.needleLength = Double(needleLengthInput.text!)
+        print("\(newNeedle.needleSize!), \(newNeedle.type!)")
+    }
+    
     func saveNeedleData() {
         let addedNeedle = PFObject(className:"AddedNeedle")
-        addedNeedle["size"] = newNeedle.size
+        addedNeedle["size"] = newNeedle.needleSize
         //addedNeedle["type"] = newNeedle.type as! PFObject
-        addedNeedle["length"] = newNeedle.length
+        addedNeedle["length"] = newNeedle.needleLength
         addedNeedle.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
@@ -69,15 +69,5 @@ class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         }
     }
     
-    
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        let vc = segue.destinationViewController as! NeedleViewController
-    
-        
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
+}
 

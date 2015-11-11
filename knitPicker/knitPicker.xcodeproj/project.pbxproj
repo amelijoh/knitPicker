@@ -43,6 +43,7 @@
 		3B7A5EEB1BEA4C63007AB22E /* YarnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YarnViewController.swift; sourceTree = "<group>"; };
 		3B7A5EEF1BEA5A53007AB22E /* Needle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Needle.swift; sourceTree = "<group>"; };
 		3B7A5EF11BEA5A62007AB22E /* Yarn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Yarn.swift; sourceTree = "<group>"; };
+		3BE8BC551BF2508600D7A159 /* objcToSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = objcToSwift.playground; sourceTree = "<group>"; };
 		9AA84BEEE14885F6A0D98503 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B0BFE47930F33BCE28EED861 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -83,6 +84,7 @@
 		3B7A5EB51BE7B497007AB22E = {
 			isa = PBXGroup;
 			children = (
+				3BE8BC551BF2508600D7A159 /* objcToSwift.playground */,
 				3B7A5EC01BE7B497007AB22E /* knitPicker */,
 				3B7A5EBF1BE7B497007AB22E /* Products */,
 				6635C5BB919E8FC30DC07620 /* Pods */,

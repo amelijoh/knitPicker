@@ -14,8 +14,7 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
 
     @IBOutlet weak var needleTableView: UITableView!
     
-    
-    var needlePincushion: NSMutableArray = NSMutableArray()
+    var needlePincushion = [Needle]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +42,9 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
         if (cell == nil){
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: needleTableIdentifier)
         }
-        cell.textLabel?.text = "Size: " + needlePincushion[indexPath.row].description
-        print(needlePincushion.description)
+        cell.textLabel?.text = "Size: " + String(needlePincushion[indexPath.row].needleSize!)
+        cell.detailTextLabel?.text = String(needlePincushion[indexPath.row].type!) + " Needles"
+//        print(needlePincushion.description)
             //"Size: " + String(needlePincushion[indexPath.row].needleSize)
         //cell.detailTextLabel?.text = String(needlePincushion[indexPath.row].needleLength) + " Needles"
         return cell
@@ -61,37 +61,32 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
 
 //pull saved object from Parse, parse data
     
-func retrieveSavedNeedle() {
+    func retrieveSavedNeedle() {
     
-    PFObject.unpinAllObjectsInBackgroundWithBlock(nil)
-    var query: PFQuery = PFQuery(className:"AddedNeedle")
-    query.findObjectsInBackgroundWithBlock{
+        PFObject.unpinAllObjectsInBackgroundWithBlock(nil)
+        let query: PFQuery = PFQuery(className:"AddedNeedle")
+        query.findObjectsInBackgroundWithBlock{
         (objects, error) -> Void in
         if error == nil {
-            
-            let temp: NSArray = objects! as NSArray
-            self.needlePincushion = temp.mutableCopy() as! NSMutableArray
             
             //PFObject.pinAllInBackground(objects, block: nil)
 
             if let savedNeedles = objects as [PFObject]! {
-                    for object in savedNeedles {
-                    var needleSize = object["size"]
+                for object in savedNeedles {
+                    let needleSize = object["size"] as! Double
                     //needleSizes
-                    let needleLength = object["length"]
-                    //print("Size: \(needleSize) + \(needleLength) inches")
-                
+                    let needleLength = object["length"] as! Double
+                    let needle = Needle(needleSize: needleSize, type: NeedleType.Circular, needleLength: needleLength)
+                    self.needlePincushion.append(needle)
+                    print("Size: \(needleSize) + \(needleLength) inches")
                 }
-
+                print("The needle count is \(self.needlePincushion.count)")
             }
-            
         } else {
             print("Error: \(error!) \(error!.userInfo)")
-            }
+        }
         
         }
-
-    //print(self.needlePincushion.count)
 
     }
 

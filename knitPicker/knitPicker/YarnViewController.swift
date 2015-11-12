@@ -102,7 +102,7 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 //PFObject.pinAllInBackground(objects, block: nil)
                 
                 if let savedSkeins = objects as [PFObject]! {
-                    self.yarnTableView.reloadData()
+                    //self.yarnTableView.reloadData()
                     
                     for object in savedSkeins {
                         let brandName = object["brandName"] as! String
@@ -113,7 +113,7 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         self.yarnStash.append(skein)
                         print("Size: \(brandName) + \(yarnWeightType) weight")
                     }
-                    //self.yarnTableView.reloadData()
+                    self.yarnTableView.reloadData()
                     
                     print("****************************************")
                     print("The skein count is \(self.yarnStash.count)")

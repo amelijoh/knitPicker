@@ -23,7 +23,7 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        self.needleTableView.reloadData()
+        reloadTableView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,55 +36,93 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
         return needlePincushion.count
     }
     
+    //cell appearance and text
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        retrieveSavedNeedle()
         var cell = tableView.dequeueReusableCellWithIdentifier(needleTableIdentifier) as UITableViewCell!
         if (cell == nil){
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: needleTableIdentifier)
         }
         cell.textLabel?.text = "Size: " + String(needlePincushion[indexPath.row].needleSize!)
-        cell.detailTextLabel?.text = String(needlePincushion[indexPath.row].type!) + " Needles"
-//        print(needlePincushion.description)
-            //"Size: " + String(needlePincushion[indexPath.row].needleSize)
-        //cell.detailTextLabel?.text = String(needlePincushion[indexPath.row].needleLength) + " Needles"
+        cell.detailTextLabel?.text = (String(needlePincushion[indexPath.row].needleType!) + " Needles")
+        sortNeedlePincushion()
         return cell
     }
+    
+    //editing tableview rows enabled
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
+        return true
+    }
+    
+    //delete selected row in tableview
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if editingStyle == .Delete
+        {
+            needlePincushion.removeAtIndex(indexPath.row)
+            reloadTableView()
+        }
+    }
+
+    // pass new Needle object from AddNeedleViewController
     
     @IBAction func unwindToNeedleVC(segue:UIStoryboardSegue) {
                 if (segue.sourceViewController .isKindOfClass(AddNeedleViewController))
                 {
                     let sourceVC = segue.sourceViewController as! AddNeedleViewController
+                    needlePincushion.append(sourceVC.newNeedle)
                     print(needlePincushion.count)
                 }
         
             }
+    
+    //organize needles by needle size
+    
+    func sortNeedlePincushion() {
+        if needlePincushion.isEmpty {
+            print("needle pincushion is empty!")
+        }
+        else {
+            needlePincushion.sortInPlace({$0.needleSize < $1.needleSize})
+        }
+    }
+    
+    func reloadTableView() {
+        sortNeedlePincushion()
+        self.needleTableView.reloadData()
+    }
 
-//pull saved object from Parse, parse data
+//retrieve saved object from Parse, parse object as Needle object
     
     func retrieveSavedNeedle() {
-    
+        needlePincushion.removeAll()
         PFObject.unpinAllObjectsInBackgroundWithBlock(nil)
         let query: PFQuery = PFQuery(className:"AddedNeedle")
         query.findObjectsInBackgroundWithBlock{
         (objects, error) -> Void in
         if error == nil {
             
-            //PFObject.pinAllInBackground(objects, block: nil)
-
             if let savedNeedles = objects as [PFObject]! {
                 for object in savedNeedles {
                     let needleSize = object["size"] as! Double
-                    //needleSizes
+                    let needleType = object["type"] as! String
                     let needleLength = object["length"] as! Double
-                    let needle = Needle(needleSize: needleSize, type: NeedleType.Circular, needleLength: needleLength)
+                    let needleObjectID = object.objectId! as! String
+                    let needle = Needle(needleSize: needleSize, needleType: needleType, needleLength: needleLength, needleParseID: needleObjectID)
                     self.needlePincushion.append(needle)
                     print("Size: \(needleSize) + \(needleLength) inches")
                 }
+                self.reloadTableView()
+
+                print("****************************************")
                 print("The needle count is \(self.needlePincushion.count)")
             }
         } else {
             print("Error: \(error!) \(error!.userInfo)")
-        }
+            }
         
         }
 
@@ -92,15 +130,4 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
 
 }
 
-//                    needlePincushion.append(sourceVC.newNeedle)
-
-//    func sortNeedlePincushion() {
-//        if needlePincushion.isEmpty {
-//            print("needle pincushion is empty!")
-//        }
-//        else {
-//            needlePincushion.sortInPlace({$0.size < $1.size})
-//            print("you have needles!")
-//        }
-//    }
 

@@ -11,39 +11,15 @@ import Foundation
 class Yarn {
     
     var brandName: String?
-    var yarnWeight: WeightType?
+    var yarnWeightArray: [String] = ["Lace", "Super fine/Fingering", "Fine/Sport-weight", "Light/DK", "Medium/Worsted", "Bulky/Chunky", "Super bulky"]
+    var yarnWeightType: String?
     var lengthPerSkein: Double?
     var numberOfSkeins: Int?
     
-    init(brandName: String, yarnWeight: WeightType, lengthPerSkein: Double, numberOfSkeins: Int) {
+    init(brandName: String, yarnWeightType: String, lengthPerSkein: Double, numberOfSkeins: Int) {
         self.brandName = brandName
-        self.yarnWeight = yarnWeight
+        self.yarnWeightType = yarnWeightType
         self.lengthPerSkein = lengthPerSkein
         self.numberOfSkeins = numberOfSkeins
-    }
-}
-
-
-
-enum WeightType: Int, CustomStringConvertible {
-    case Lace = 0
-    case SuperFine = 1
-    case Fine = 2
-    case Light = 3
-    case Medium = 4
-    case Bulky = 5
-    case SuperBulky = 6
-    static var count: Int { return SuperBulky.hashValue + 1 }
-    
-    var description: String {
-        switch self {
-        case .Lace: return "Lace"
-        case .SuperFine: return "Super fine/fingering"
-        case .Fine: return "Fine/Sport-weight"
-        case .Light: return "Light/DK"
-        case .Medium: return "Medium/Worsted"
-        case .Bulky: return "Bulky/Chunky"
-        case .SuperBulky: return "Super bulky"
-        }
     }
 }

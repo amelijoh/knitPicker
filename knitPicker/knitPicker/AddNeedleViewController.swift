@@ -11,7 +11,9 @@ import Parse
 
 class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    let newNeedle = Needle(needleSize: 0.0, type: .Circular, needleLength: 0.0)
+    let newNeedle = Needle(needleSize: 0.0, needleType: "", needleLength: 0.0, needleParseID: "")
+    var needleParseObjectID = ""
+    
 
     @IBOutlet weak var needleSizeInput: UITextField!
     
@@ -40,29 +42,35 @@ class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return NeedleType.count.hashValue
+        return newNeedle.needleTypeArray.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return NeedleType(rawValue: row)?.description
+        return newNeedle.needleTypeArray[row]
     }
     
     func addNeedle() {
         newNeedle.needleSize = Double(needleSizeInput.text!)
-        newNeedle.type = NeedleType(rawValue: needleTypePicker.selectedRowInComponent(0))!
+        let row = needleTypePicker.selectedRowInComponent(0)
+        let selected = newNeedle.needleTypeArray[row]
+        newNeedle.needleType = newNeedle.needleTypeArray[row]
         newNeedle.needleLength = Double(needleLengthInput.text!)
-        print("\(newNeedle.needleSize!), \(newNeedle.type!)")
+        newNeedle.needleParseID = needleParseObjectID
+        print("\(newNeedle.needleSize!), \(newNeedle.needleType!)")
     }
     
     func saveNeedleData() {
         let addedNeedle = PFObject(className:"AddedNeedle")
         addedNeedle["size"] = newNeedle.needleSize
-        //addedNeedle["type"] = newNeedle.type as! PFObject
+        addedNeedle["type"] = newNeedle.needleType
         addedNeedle["length"] = newNeedle.needleLength
         addedNeedle.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
                 print("The needle has been saved")
+                self.needleParseObjectID = addedNeedle.objectId!
+                print(self.needleParseObjectID)
+                //self.addNeedle()
             } else {
                 print("There was a problem with the needle")
             }

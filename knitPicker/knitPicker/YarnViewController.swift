@@ -50,10 +50,41 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
+    //editing tableview rows enabled
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
+        return true
+    }
+    
+    //delete selected row in tableview
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if editingStyle == .Delete
+        {
+            var deletedNeedle = yarnStash.removeAtIndex(indexPath.row)
+            // let query = PFQuery(className: "AddedNeedle")
+            
+            
+            //            let query = PFQuery(className: "AddedNeedle")
+            //            query.whereKey("columnName", equalTo: "abcd")
+            //            query.findObjectsInBackgroundWithBlock {
+            //                (objects: [AnyObject]?, error: NSError?) -> Void in
+            //                for object in objects! {
+            //                    object.deleteEventually()
+            //                }
+            //            }
+            self.yarnTableView.reloadData()
+        }
+    }
+
+    
     @IBAction func unwindToYarnVC(segue:UIStoryboardSegue) {
         if (segue.sourceViewController .isKindOfClass(AddYarnViewController))
         {
             let sourceVC = segue.sourceViewController as! AddYarnViewController
+            yarnStash.append(sourceVC.newSkein)
             print(yarnStash.count)
             
         }
@@ -71,6 +102,8 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 //PFObject.pinAllInBackground(objects, block: nil)
                 
                 if let savedSkeins = objects as [PFObject]! {
+                    self.yarnTableView.reloadData()
+                    
                     for object in savedSkeins {
                         let brandName = object["brandName"] as! String
                         let yarnWeightType = object["yarnWeight"] as! String
@@ -80,7 +113,7 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         self.yarnStash.append(skein)
                         print("Size: \(brandName) + \(yarnWeightType) weight")
                     }
-                    self.yarnTableView.reloadData()
+                    //self.yarnTableView.reloadData()
                     
                     print("****************************************")
                     print("The skein count is \(self.yarnStash.count)")

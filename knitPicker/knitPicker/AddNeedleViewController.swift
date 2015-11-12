@@ -11,7 +11,8 @@ import Parse
 
 class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    let newNeedle = Needle(needleSize: 0.0, needleType: "", needleLength: 0.0)
+    let newNeedle = Needle(needleSize: 0.0, needleType: "", needleLength: 0.0, needleParseID: "")
+    var needleParseObjectID = ""
     
 
     @IBOutlet weak var needleSizeInput: UITextField!
@@ -53,8 +54,8 @@ class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         let row = needleTypePicker.selectedRowInComponent(0)
         let selected = newNeedle.needleTypeArray[row]
         newNeedle.needleType = newNeedle.needleTypeArray[row]
-//        newNeedle.needleType = selectedRow.description
         newNeedle.needleLength = Double(needleLengthInput.text!)
+        newNeedle.needleParseID = needleParseObjectID
         print("\(newNeedle.needleSize!), \(newNeedle.needleType!)")
     }
     
@@ -67,6 +68,9 @@ class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             (success: Bool, error: NSError?) -> Void in
             if (success) {
                 print("The needle has been saved")
+                self.needleParseObjectID = addedNeedle.objectId!
+                print(self.needleParseObjectID)
+                //self.addNeedle()
             } else {
                 print("There was a problem with the needle")
             }

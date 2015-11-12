@@ -23,18 +23,3 @@ class Yarn {
         self.numberOfSkeins = numberOfSkeins
     }
 }
-
-
-//    
-//    var description: String {
-//        switch self {
-//        case .Lace: return "Lace"
-//        case .SuperFine: return "Super fine/fingering"
-//        case .Fine: return "Fine/Sport-weight"
-//        case .Light: return "Light/DK"
-//        case .Medium: return "Medium/Worsted"
-//        case .Bulky: return "Bulky/Chunky"
-//        case .SuperBulky: return "Super bulky"
-//        }
-//    }
-//}

@@ -36,8 +36,9 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
         return needlePincushion.count
     }
     
+    //cell appearance and text
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //retrieveSavedNeedle()
         var cell = tableView.dequeueReusableCellWithIdentifier(needleTableIdentifier) as UITableViewCell!
         if (cell == nil){
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: needleTableIdentifier)
@@ -48,14 +49,37 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
+    //editing tableview rows enabled
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
+        return true
+    }
+    
+    //delete selected row in tableview
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if editingStyle == .Delete
+        {
+            needlePincushion.removeAtIndex(indexPath.row)
+            self.needleTableView.reloadData()
+        }
+    }
+
+    // pass new Needle object from AddNeedleViewController
+    
     @IBAction func unwindToNeedleVC(segue:UIStoryboardSegue) {
                 if (segue.sourceViewController .isKindOfClass(AddNeedleViewController))
                 {
                     let sourceVC = segue.sourceViewController as! AddNeedleViewController
+                    needlePincushion.append(sourceVC.newNeedle)
                     print(needlePincushion.count)
                 }
         
             }
+    
+    //organize needles by needle size
     
     func sortNeedlePincushion() {
         if needlePincushion.isEmpty {
@@ -66,7 +90,8 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
 
-//pull saved object from Parse, parse data
+//retrieve saved object from Parse, parse object as Needle object
+    
     func retrieveSavedNeedle() {
         needlePincushion.removeAll()
         PFObject.unpinAllObjectsInBackgroundWithBlock(nil)
@@ -82,7 +107,8 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
                     let needleSize = object["size"] as! Double
                     let needleType = object["type"] as! String
                     let needleLength = object["length"] as! Double
-                    let needle = Needle(needleSize: needleSize, needleType: needleType, needleLength: needleLength)
+                    let needleObjectID = object.objectId! as! String
+                    let needle = Needle(needleSize: needleSize, needleType: needleType, needleLength: needleLength, needleParseID: needleObjectID)
                     self.needlePincushion.append(needle)
                     print("Size: \(needleSize) + \(needleLength) inches")
                 }
@@ -101,5 +127,4 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
 
 }
 
-//                    needlePincushion.append(sourceVC.newNeedle)
 

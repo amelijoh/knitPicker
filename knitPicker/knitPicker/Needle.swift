@@ -14,29 +14,20 @@ class Needle {
     var needleTypeArray: [String] = ["Circular", "Doublepointed", "Straight"]
     var needleType: String?
     var needleLength: Double?
+    var needleParseID: String?
     
-    init(needleSize: Double, needleType: String, needleLength: Double) {
+    init(needleSize: Double, needleType: String, needleLength: Double, needleParseID: String) {
         self.needleSize = needleSize
         self.needleType = needleType
         self.needleLength = needleLength
+        self.needleParseID = needleParseID
    
     }
 }
 
-//enum NeedleType: Int, CustomStringConvertible {
-//    case Circular = 0
-//    case Doublepointed = 1
-//    case Straight = 2
-//    static var count: Int { return NeedleType.Straight.hashValue + 1 }
+//class NeedleBinder {
+//    var needleBinder: [Needle]
 //    
-//    var description: String {
-//        switch self {
-//        case .Circular: return "Circular"
-//        case .Doublepointed: return "Doublepointed"
-//        case .Straight: return "Straight"
-//        }
-//    }
+//    init(needleBinder: [Needle])
+//        self.needleBinder = needleBinder
 //}
-
-//var needleType = [String]()
-//needleType = ["Circular", "Doublepointed", "Straight"]

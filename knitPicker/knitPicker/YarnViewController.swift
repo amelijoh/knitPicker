@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -17,6 +18,7 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        retrieveSavedSkein()
 
         // Do any additional setup after loading the view.
     }
@@ -43,7 +45,7 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: yarnTableIdentifier)
         }
         cell.textLabel?.text = yarnStash[indexPath.row].brandName!
-        cell.detailTextLabel?.text = String(yarnStash[indexPath.row].yarnWeight!)
+        cell.detailTextLabel?.text = String(yarnStash[indexPath.row].yarnWeightType!)
         
         return cell
     }
@@ -52,13 +54,45 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if (segue.sourceViewController .isKindOfClass(AddYarnViewController))
         {
             let sourceVC = segue.sourceViewController as! AddYarnViewController
-            yarnStash.append(sourceVC.newSkein)
             print(yarnStash.count)
             
         }
         
     }
     
+    func retrieveSavedSkein() {
+        yarnStash.removeAll()
+        PFObject.unpinAllObjectsInBackgroundWithBlock(nil)
+        let query: PFQuery = PFQuery(className:"AddedYarn")
+        query.findObjectsInBackgroundWithBlock{
+            (objects, error) -> Void in
+            if error == nil {
+                
+                //PFObject.pinAllInBackground(objects, block: nil)
+                
+                if let savedSkeins = objects as [PFObject]! {
+                    for object in savedSkeins {
+                        let brandName = object["brandName"] as! String
+                        let yarnWeightType = object["yarnWeight"] as! String
+                        let skeinLength = object["skeinLength"] as! Double
+                        let skeinNumber = object["skeinNumber"] as! Int
+                        let skein = Yarn(brandName: brandName, yarnWeightType: yarnWeightType, lengthPerSkein: skeinLength, numberOfSkeins: skeinNumber)
+                        self.yarnStash.append(skein)
+                        print("Size: \(brandName) + \(yarnWeightType) weight")
+                    }
+                    self.yarnTableView.reloadData()
+                    
+                    print("****************************************")
+                    print("The skein count is \(self.yarnStash.count)")
+                }
+            } else {
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+            
+        }
+        
+    }
+    
+}
 
-   }
 

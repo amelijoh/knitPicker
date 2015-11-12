@@ -19,13 +19,11 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         retrieveSavedSkein()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        self.yarnTableView.reloadData()
+        reloadTableView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +44,7 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         cell.textLabel?.text = yarnStash[indexPath.row].brandName!
         cell.detailTextLabel?.text = String(yarnStash[indexPath.row].yarnWeightType!)
-        
+        sortYarnStash()
         return cell
     }
     
@@ -63,21 +61,11 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
     {
         if editingStyle == .Delete
         {
-            var deletedNeedle = yarnStash.removeAtIndex(indexPath.row)
-            // let query = PFQuery(className: "AddedNeedle")
-            
-            
-            //            let query = PFQuery(className: "AddedNeedle")
-            //            query.whereKey("columnName", equalTo: "abcd")
-            //            query.findObjectsInBackgroundWithBlock {
-            //                (objects: [AnyObject]?, error: NSError?) -> Void in
-            //                for object in objects! {
-            //                    object.deleteEventually()
-            //                }
-            //            }
+            yarnStash.removeAtIndex(indexPath.row)
             self.yarnTableView.reloadData()
         }
     }
+
 
     
     @IBAction func unwindToYarnVC(segue:UIStoryboardSegue) {
@@ -85,10 +73,25 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
         {
             let sourceVC = segue.sourceViewController as! AddYarnViewController
             yarnStash.append(sourceVC.newSkein)
+            reloadTableView()
             print(yarnStash.count)
             
         }
         
+    }
+    
+    func sortYarnStash() {
+        if yarnStash.isEmpty {
+            print("needle pincushion is empty!")
+        }
+        else {
+            yarnStash.sortInPlace({$0.brandName < $1.brandName})
+        }
+    }
+    
+    func reloadTableView() {
+        sortYarnStash()
+        self.yarnTableView.reloadData()
     }
     
     func retrieveSavedSkein() {
@@ -102,7 +105,6 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 //PFObject.pinAllInBackground(objects, block: nil)
                 
                 if let savedSkeins = objects as [PFObject]! {
-                    //self.yarnTableView.reloadData()
                     
                     for object in savedSkeins {
                         let brandName = object["brandName"] as! String
@@ -113,7 +115,7 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         self.yarnStash.append(skein)
                         print("Size: \(brandName) + \(yarnWeightType) weight")
                     }
-                    self.yarnTableView.reloadData()
+                    self.reloadTableView()
                     
                     print("****************************************")
                     print("The skein count is \(self.yarnStash.count)")

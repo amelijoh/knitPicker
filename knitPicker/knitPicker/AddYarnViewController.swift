@@ -13,6 +13,8 @@ class AddYarnViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     let newSkein = Yarn(brandName: "", yarnWeightType: "", lengthPerSkein: 0.0, numberOfSkeins: 0)
     
+    private var tableView: UITableView?
+    
     @IBOutlet weak var yarnBrandInput: UITextField!
     @IBOutlet weak var numberOfSkeinsInput: UITextField!
     @IBOutlet weak var skeinInfoInput: UITextField!
@@ -66,10 +68,15 @@ class AddYarnViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             (success: Bool, error: NSError?) -> Void in
             if (success) {
                 print("The yarn has been saved")
+                self.tableView?.reloadData()
+                
             } else {
                 print("There was a problem with the yarn")
             }
         }
     }
 
+    func configureWithTable(table: UITableView) {
+        self.tableView = table
+    }
 }

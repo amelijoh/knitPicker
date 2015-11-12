@@ -23,7 +23,7 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        self.needleTableView.reloadData()
+        reloadTableView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,7 +63,7 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
         if editingStyle == .Delete
         {
             needlePincushion.removeAtIndex(indexPath.row)
-            self.needleTableView.reloadData()
+            reloadTableView()
         }
     }
 
@@ -89,6 +89,11 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
             needlePincushion.sortInPlace({$0.needleSize < $1.needleSize})
         }
     }
+    
+    func reloadTableView() {
+        sortNeedlePincushion()
+        self.needleTableView.reloadData()
+    }
 
 //retrieve saved object from Parse, parse object as Needle object
     
@@ -100,8 +105,6 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
         (objects, error) -> Void in
         if error == nil {
             
-            //PFObject.pinAllInBackground(objects, block: nil)
-
             if let savedNeedles = objects as [PFObject]! {
                 for object in savedNeedles {
                     let needleSize = object["size"] as! Double
@@ -112,14 +115,14 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
                     self.needlePincushion.append(needle)
                     print("Size: \(needleSize) + \(needleLength) inches")
                 }
-                self.needleTableView.reloadData()
+                self.reloadTableView()
 
                 print("****************************************")
                 print("The needle count is \(self.needlePincushion.count)")
             }
         } else {
             print("Error: \(error!) \(error!.userInfo)")
-        }
+            }
         
         }
 

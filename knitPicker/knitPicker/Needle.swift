@@ -12,27 +12,32 @@ import Parse
 class Needle {
     
     var needleSize: Double?
-    var type: NeedleType?
+    var needleTypeArray: [String] = ["Circular", "Doublepointed", "Straight"]
+    var needleType: String?
     var needleLength: Double?
     
-    init(needleSize: Double, type: NeedleType, needleLength: Double) {
+    init(needleSize: Double, needleType: String, needleLength: Double) {
         self.needleSize = needleSize
-        self.type = type
+        self.needleType = needleType
         self.needleLength = needleLength
+   
     }
 }
 
-enum NeedleType: Int, CustomStringConvertible {
-    case Circular = 0
-    case Doublepointed = 1
-    case Straight = 2
-    static var count: Int { return NeedleType.Straight.hashValue + 1 }
-    
-    var description: String {
-        switch self {
-        case .Circular: return "Circular"
-        case .Doublepointed: return "Doublepointed"
-        case .Straight: return "Straight"
-        }
-    }
-}
+//enum NeedleType: Int, CustomStringConvertible {
+//    case Circular = 0
+//    case Doublepointed = 1
+//    case Straight = 2
+//    static var count: Int { return NeedleType.Straight.hashValue + 1 }
+//    
+//    var description: String {
+//        switch self {
+//        case .Circular: return "Circular"
+//        case .Doublepointed: return "Doublepointed"
+//        case .Straight: return "Straight"
+//        }
+//    }
+//}
+
+//var needleType = [String]()
+//needleType = ["Circular", "Doublepointed", "Straight"]

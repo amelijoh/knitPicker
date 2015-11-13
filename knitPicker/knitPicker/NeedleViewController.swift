@@ -43,6 +43,7 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
         if (cell == nil){
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: needleTableIdentifier)
         }
+        cell.backgroundColor = UIColor(colorLiteralRed: 114/255.0, green: 205/255.0, blue: 178/255.0, alpha: 1.0)
         cell.textLabel?.text = "Size: " + String(needlePincushion[indexPath.row].needleSize!)
         cell.detailTextLabel?.text = (String(needlePincushion[indexPath.row].needleType!) + " Needles")
         sortNeedlePincushion()

@@ -46,6 +46,7 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
         cell.backgroundColor = UIColor(colorLiteralRed: 114/255.0, green: 205/255.0, blue: 178/255.0, alpha: 1.0)
         cell.textLabel!.font = UIFont(name: "Gill Sans", size: 15.0)
         cell.textLabel?.text = "Size: " + String(needlePincushion[indexPath.row].needleSize!)
+        cell.detailTextLabel?.font = UIFont(name: "Gill Sans", size: 12.0)
         cell.detailTextLabel?.text = "\(String(needlePincushion[indexPath.row].needleType!))" + " \(String(needlePincushion[indexPath.row].needleLength!))'' needles"
         sortNeedlePincushion()
         return cell

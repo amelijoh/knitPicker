@@ -26,7 +26,7 @@
                                 <color key="separatorColor" red="0.88803736180000004" green="0.92508852649999995" blue="0.94077493690000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="7bx-U6-DBH">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7bx-U6-DBH" id="3C9-VK-i2Y">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -149,7 +149,7 @@
                                 <color key="sectionIndexBackgroundColor" red="0.44705882349999998" green="0.80392156859999997" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="FWU-FC-LxT">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FWU-FC-LxT" id="JL4-Ry-I1D">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>

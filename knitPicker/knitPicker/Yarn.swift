@@ -13,10 +13,10 @@ class Yarn {
     var brandName: String?
     var yarnWeightArray: [String] = ["Lace", "Super fine/Fingering", "Fine/Sport-weight", "Light/DK", "Medium/Worsted", "Bulky/Chunky", "Super bulky"]
     var yarnWeightType: String?
-    var lengthPerSkein: Double?
+    var lengthPerSkein: Int?
     var numberOfSkeins: Int?
     
-    init(brandName: String, yarnWeightType: String, lengthPerSkein: Double, numberOfSkeins: Int) {
+    init(brandName: String, yarnWeightType: String, lengthPerSkein: Int, numberOfSkeins: Int) {
         self.brandName = brandName
         self.yarnWeightType = yarnWeightType
         self.lengthPerSkein = lengthPerSkein

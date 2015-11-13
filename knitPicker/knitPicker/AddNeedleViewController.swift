@@ -11,7 +11,7 @@ import Parse
 
 class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    let newNeedle = Needle(needleSize: 0.0, needleType: "", needleLength: 0.0, needleParseID: "")
+    let newNeedle = Needle(needleSize: 0.0, needleType: "", needleLength: 0, needleParseID: "")
     var needleParseObjectID = ""
     
 
@@ -54,7 +54,7 @@ class AddNeedleViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         let row = needleTypePicker.selectedRowInComponent(0)
         let selected = newNeedle.needleTypeArray[row]
         newNeedle.needleType = newNeedle.needleTypeArray[row]
-        newNeedle.needleLength = Double(needleLengthInput.text!)
+        newNeedle.needleLength = Int(needleLengthInput.text!)
         newNeedle.needleParseID = needleParseObjectID
         print("\(newNeedle.needleSize!), \(newNeedle.needleType!)")
     }

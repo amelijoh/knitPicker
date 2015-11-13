@@ -13,10 +13,10 @@ class Needle {
     var needleSize: Double?
     var needleTypeArray: [String] = ["Circular", "Doublepointed", "Straight"]
     var needleType: String?
-    var needleLength: Double?
+    var needleLength: Int?
     var needleParseID: String?
     
-    init(needleSize: Double, needleType: String, needleLength: Double, needleParseID: String) {
+    init(needleSize: Double, needleType: String, needleLength: Int, needleParseID: String) {
         self.needleSize = needleSize
         self.needleType = needleType
         self.needleLength = needleLength

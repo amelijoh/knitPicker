@@ -43,8 +43,9 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: yarnTableIdentifier)
         }
         cell.backgroundColor = UIColor(colorLiteralRed: 181/255.0, green: 168/255.0, blue: 215/255.0, alpha: 1.0)
+        cell.textLabel!.font = UIFont(name: "Gill Sans", size: 15.0)
         cell.textLabel?.text = yarnStash[indexPath.row].brandName!
-        cell.detailTextLabel?.text = String(yarnStash[indexPath.row].yarnWeightType!)
+        cell.detailTextLabel?.text = "\(String(yarnStash[indexPath.row].yarnWeightType!)), \(yarnStash[indexPath.row].numberOfSkeins!) skeins"
         sortYarnStash()
         return cell
     }

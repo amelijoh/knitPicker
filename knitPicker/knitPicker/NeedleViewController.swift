@@ -44,8 +44,9 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: needleTableIdentifier)
         }
         cell.backgroundColor = UIColor(colorLiteralRed: 114/255.0, green: 205/255.0, blue: 178/255.0, alpha: 1.0)
+        cell.textLabel!.font = UIFont(name: "Gill Sans", size: 15.0)
         cell.textLabel?.text = "Size: " + String(needlePincushion[indexPath.row].needleSize!)
-        cell.detailTextLabel?.text = (String(needlePincushion[indexPath.row].needleType!) + " Needles")
+        cell.detailTextLabel?.text = "\(String(needlePincushion[indexPath.row].needleType!))" + " \(String(needlePincushion[indexPath.row].needleLength!))'' needles"
         sortNeedlePincushion()
         return cell
     }
@@ -110,7 +111,7 @@ class NeedleViewController: UIViewController, UITableViewDataSource, UITableView
                 for object in savedNeedles {
                     let needleSize = object["size"] as! Double
                     let needleType = object["type"] as! String
-                    let needleLength = object["length"] as! Double
+                    let needleLength = object["length"] as! Int
                     let needleObjectID = object.objectId! as! String
                     let needle = Needle(needleSize: needleSize, needleType: needleType, needleLength: needleLength, needleParseID: needleObjectID)
                     self.needlePincushion.append(needle)

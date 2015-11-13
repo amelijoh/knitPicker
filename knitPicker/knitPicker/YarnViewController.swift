@@ -45,7 +45,7 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.backgroundColor = UIColor(colorLiteralRed: 181/255.0, green: 168/255.0, blue: 215/255.0, alpha: 1.0)
         cell.textLabel!.font = UIFont(name: "Gill Sans", size: 15.0)
         cell.textLabel?.text = yarnStash[indexPath.row].brandName!
-        cell.detailTextLabel?.text = "\(String(yarnStash[indexPath.row].yarnWeightType!)), \(yarnStash[indexPath.row].numberOfSkeins!) skeins"
+        cell.detailTextLabel?.text = "\(String(yarnStash[indexPath.row].yarnWeightType!)), \(yarnStash[indexPath.row].numberOfSkeins!) skeins, \(String(yarnStash[indexPath.row].lengthPerSkein!)) yds per skein"
         sortYarnStash()
         return cell
     }
@@ -111,7 +111,7 @@ class YarnViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     for object in savedSkeins {
                         let brandName = object["brandName"] as! String
                         let yarnWeightType = object["yarnWeight"] as! String
-                        let skeinLength = object["skeinLength"] as! Double
+                        let skeinLength = object["skeinLength"] as! Int
                         let skeinNumber = object["skeinNumber"] as! Int
                         let skein = Yarn(brandName: brandName, yarnWeightType: yarnWeightType, lengthPerSkein: skeinLength, numberOfSkeins: skeinNumber)
                         self.yarnStash.append(skein)

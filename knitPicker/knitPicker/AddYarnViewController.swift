@@ -11,9 +11,9 @@ import Parse
 
 class AddYarnViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    let newSkein = Yarn(brandName: "", yarnWeightType: "", lengthPerSkein: 0.0, numberOfSkeins: 0)
+    let newSkein = Yarn(brandName: "", yarnWeightType: "", lengthPerSkein: 0, numberOfSkeins: 0)
     
-    private var tableView: UITableView?
+    //private var tableView: UITableView?
     
     @IBOutlet weak var yarnBrandInput: UITextField!
     @IBOutlet weak var numberOfSkeinsInput: UITextField!
@@ -54,7 +54,7 @@ class AddYarnViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let selected = newSkein.yarnWeightArray[row]
         newSkein.yarnWeightType = newSkein.yarnWeightArray[row]
         newSkein.numberOfSkeins = Int(numberOfSkeinsInput.text!)
-        newSkein.lengthPerSkein = Double(skeinInfoInput.text!)
+        newSkein.lengthPerSkein = Int(skeinInfoInput.text!)
         print("\(newSkein.brandName!), \(newSkein.yarnWeightType!)")
     
 }
@@ -68,7 +68,7 @@ class AddYarnViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             (success: Bool, error: NSError?) -> Void in
             if (success) {
                 print("The yarn has been saved")
-                self.tableView?.reloadData()
+                //self.tableView?.reloadData()
                 
             } else {
                 print("There was a problem with the yarn")
@@ -77,6 +77,6 @@ class AddYarnViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
 
     func configureWithTable(table: UITableView) {
-        self.tableView = table
+        //self.tableView = table
     }
 }
